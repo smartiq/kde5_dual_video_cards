@@ -1,0 +1,14 @@
+diff -Nauwr kwin-5.4.0.orig/screens_xrandr.cpp kwin-5.4.0/screens_xrandr.cpp
+--- kwin-5.4.0.orig/screens_xrandr.cpp	2015-09-06 07:50:24.617954667 -0700
++++ kwin-5.4.0/screens_xrandr.cpp	2015-09-06 07:51:15.478748560 -0700
+@@ -42,6 +42,10 @@
+     };
+     m_geometries.clear();
+     m_names.clear();
++    if(!Xcb::Extensions::self()->isRandrAvailable()) {
++	    fallback();
++	    return;
++    }
+     T resources(rootWindow());
+     if (resources.isNull()) {
+         fallback();

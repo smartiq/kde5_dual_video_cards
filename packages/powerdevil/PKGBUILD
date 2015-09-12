@@ -1,0 +1,41 @@
+# $Id: PKGBUILD 245020 2015-08-29 08:50:02Z arojas $
+# Maintainer: Felix Yan <felixonmars@archlinux.org>
+# Contributor: Andrea Scarpino <andrea@archlinux.org>
+# Contributor: Antonio Rojas
+
+pkgname=powerdevil
+pkgver=5.4.0
+pkgrel=1
+pkgdesc='Manages the power consumption settings of a Plasma Shell'
+arch=('i686' 'x86_64')
+url='https://projects.kde.org/projects/kde/workspace/powerdevil'
+license=('LGPL')
+depends=('plasma-workspace' 'kidletime')
+makedepends=('extra-cmake-modules' 'kdoctools' 'python')
+conflicts=('kdebase-workspace')
+groups=('plasma')
+source=("http://download.kde.org/stable/plasma/${pkgver}/$pkgname-$pkgver.tar.xz" 'pd_no_randr.patch')
+md5sums=('d75f08371f19a1f890da03349f1ba60c'
+         '5d653564781318fe6eeb14941f6ab31d')
+
+prepare() {
+  mkdir build
+     cd "${srcdir}"/${pkgname}-${pkgver}
+   patch -Np1 -i ../pd_no_randr.patch
+}
+
+build() {
+  cd build
+  cmake ../${pkgname}-${pkgver} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DLIB_INSTALL_DIR=lib \
+    -DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+    -DBUILD_TESTING=OFF
+  make
+}
+
+package() {
+  cd build
+  make DESTDIR="${pkgdir}" install
+}

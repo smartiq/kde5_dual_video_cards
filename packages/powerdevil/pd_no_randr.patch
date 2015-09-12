@@ -1,0 +1,86 @@
+diff -Nawur powerdevil-5.4.0.orig/daemon/backends/upower/xrandrbrightness.cpp powerdevil-5.4.0/daemon/backends/upower/xrandrbrightness.cpp
+--- powerdevil-5.4.0.orig/daemon/backends/upower/xrandrbrightness.cpp	2015-09-11 20:27:42.094856441 -0700
++++ powerdevil-5.4.0/daemon/backends/upower/xrandrbrightness.cpp	2015-09-11 20:51:31.026568044 -0700
+@@ -26,6 +26,7 @@
+ 
+ XRandrBrightness::XRandrBrightness()
+ {
++	return;
+     if (!QX11Info::isPlatformX11()) {
+         return;
+     }
+@@ -80,6 +81,7 @@
+ 
+ bool XRandrBrightness::isSupported() const
+ {
++    return false;
+     if (!m_resources) {
+         return false;
+     }
+@@ -96,6 +98,7 @@
+ 
+ long XRandrBrightness::brightness() const
+ {
++	return 0;
+     if (!m_resources) {
+         return 0;
+     }
+@@ -116,6 +119,7 @@
+ 
+ long XRandrBrightness::brightnessMax() const
+ {
++	return 0;
+     if (!m_resources) {
+         return 0;
+     }
+@@ -136,6 +140,7 @@
+ 
+ void XRandrBrightness::setBrightness(long value)
+ {
++	return;
+     if (!m_resources) {
+         return;
+     }
+@@ -155,6 +160,7 @@
+ }
+ 
+ bool XRandrBrightness::backlight_get_with_range(xcb_randr_output_t output, long &value, long &min, long &max) const {
++	return false;
+     long cur = backlight_get(output);
+     if (cur == -1) {
+        return false;
+@@ -181,6 +187,7 @@
+ 
+ long XRandrBrightness::backlight_get(xcb_randr_output_t output) const
+ {
++	return -1;
+     ScopedCPointer<xcb_randr_get_output_property_reply_t> propertyReply;
+     long value;
+ 
+@@ -204,6 +211,7 @@
+ 
+ void XRandrBrightness::backlight_set(xcb_randr_output_t output, long value)
+ {
++	return;
+     xcb_randr_change_output_property(QX11Info::connection(), output, m_backlight, XCB_ATOM_INTEGER,
+                                      32, XCB_PROP_MODE_REPLACE,
+                                      1, reinterpret_cast<unsigned char *>(&value));
+diff -Nawur powerdevil-5.4.0.orig/daemon/backends/upower/xrandrxcbhelper.cpp powerdevil-5.4.0/daemon/backends/upower/xrandrxcbhelper.cpp
+--- powerdevil-5.4.0.orig/daemon/backends/upower/xrandrxcbhelper.cpp	2015-09-11 20:27:42.094856441 -0700
++++ powerdevil-5.4.0/daemon/backends/upower/xrandrxcbhelper.cpp	2015-09-11 20:52:05.804032130 -0700
+@@ -40,6 +40,7 @@
+ bool XRandRXCBHelper::nativeEventFilter(const QByteArray& eventType, void* message, long int* result)
+ {
+     Q_UNUSED(result);
++    return false;
+ 
+     if (eventType != "xcb_generic_event_t") {
+         return false;
+@@ -78,6 +79,7 @@
+ 
+ void XRandRXCBHelper::init()
+ {
++	return;
+     xcb_connection_t* c = conn();
+ 
+     xcb_prefetch_extension_data(c, &xcb_randr_id);

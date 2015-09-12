@@ -1,0 +1,400 @@
+========================================================================
+Lets look at thread backtraces for the KDE Processes
+========================================================================
+================================================================
+================BT FOR kwin_x11 (9488)
+================================================================
+[New LWP 9509]
+[New LWP 9507]
+[New LWP 9502]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+0x00007fa6ecefce23 in select () from /usr/lib/libc.so.6
+
+Thread 4 (Thread 0x7fa6d2231700 (LWP 9502)):
+#0  0x00007fa6ecefb18d in poll () from /usr/lib/libc.so.6
+#1  0x00007fa6ea9c2ae2 in ?? () from /usr/lib/libxcb.so.1
+#2  0x00007fa6ea9c4757 in xcb_wait_for_event () from /usr/lib/libxcb.so.1
+#3  0x00007fa6d2effca9 in ?? () from /usr/lib/libQt5XcbQpa.so.5
+#4  0x00007fa6eac95a9e in ?? () from /usr/lib/libQt5Core.so.5
+#5  0x00007fa6ed1c64a4 in start_thread () from /usr/lib/libpthread.so.0
+#6  0x00007fa6ecf0413d in clone () from /usr/lib/libc.so.6
+
+Thread 3 (Thread 0x7fa6ca99a700 (LWP 9507)):
+#0  0x00007fa6ecefce23 in select () from /usr/lib/libc.so.6
+#1  0x00007fa6eaec891f in qt_safe_select(int, fd_set*, fd_set*, fd_set*, timespec const*) () from /usr/lib/libQt5Core.so.5
+#2  0x00007fa6eaeca3f7 in QEventDispatcherUNIXPrivate::doSelect(QFlags<QEventLoop::ProcessEventsFlag>, timespec*) () from /usr/lib/libQt5Core.so.5
+#3  0x00007fa6eaeca8fe in QEventDispatcherUNIX::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#4  0x00007fa6eae7426a in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#5  0x00007fa6eac90af4 in QThread::exec() () from /usr/lib/libQt5Core.so.5
+#6  0x00007fa6e514d335 in ?? () from /usr/lib/libQt5Qml.so.5
+#7  0x00007fa6eac95a9e in ?? () from /usr/lib/libQt5Core.so.5
+#8  0x00007fa6ed1c64a4 in start_thread () from /usr/lib/libpthread.so.0
+#9  0x00007fa6ecf0413d in clone () from /usr/lib/libc.so.6
+
+Thread 2 (Thread 0x7fa6c9999700 (LWP 9509)):
+#0  0x00007fa6ed1cc07f in pthread_cond_wait@@GLIBC_2.3.2 () from /usr/lib/libpthread.so.0
+#1  0x00007fa6e9beb564 in ?? () from /usr/lib/libQt5Script.so.5
+#2  0x00007fa6e9beb5a9 in ?? () from /usr/lib/libQt5Script.so.5
+#3  0x00007fa6ed1c64a4 in start_thread () from /usr/lib/libpthread.so.0
+#4  0x00007fa6ecf0413d in clone () from /usr/lib/libc.so.6
+
+Thread 1 (Thread 0x7fa6ed6d7840 (LWP 9488)):
+#0  0x00007fa6ecefce23 in select () from /usr/lib/libc.so.6
+#1  0x00007fa6eaec891f in qt_safe_select(int, fd_set*, fd_set*, fd_set*, timespec const*) () from /usr/lib/libQt5Core.so.5
+#2  0x00007fa6eaeca3f7 in QEventDispatcherUNIXPrivate::doSelect(QFlags<QEventLoop::ProcessEventsFlag>, timespec*) () from /usr/lib/libQt5Core.so.5
+#3  0x00007fa6eaeca8fe in QEventDispatcherUNIX::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#4  0x00007fa6d2f6635d in ?? () from /usr/lib/libQt5XcbQpa.so.5
+#5  0x00007fa6eae7426a in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#6  0x00007fa6eae7c20c in QCoreApplication::exec() () from /usr/lib/libQt5Core.so.5
+#7  0x00007fa6ed3e175b in kdemain (argc=1, argv=0x7ffe2df23718) at /home/badboy/x/kwin2/src/kwin-5.4.1/main_x11.cpp:303
+#8  0x00007fa6ece3b610 in __libc_start_main () from /usr/lib/libc.so.6
+#9  0x00000000004007e9 in _start ()
+A debugging session is active.
+
+	Inferior 1 [process 9488] will be detached.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
+================================================================
+================BT FOR kded5 (9157)
+================================================================
+[New LWP 9427]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+0x00007f9ba2044a0a in QMutex::lock() () from /usr/lib/libQt5Core.so.5
+
+Thread 2 (Thread 0x7f9b833eb700 (LWP 9427)):
+#0  0x00007f9ba1ccd18d in poll () from /usr/lib/libc.so.6
+#1  0x00007f9b9e8dfc7c in ?? () from /usr/lib/libglib-2.0.so.0
+#2  0x00007f9b9e8e0002 in g_main_loop_run () from /usr/lib/libglib-2.0.so.0
+#3  0x00007f9b880fc876 in ?? () from /usr/lib/libgio-2.0.so.0
+#4  0x00007f9b9e906625 in ?? () from /usr/lib/libglib-2.0.so.0
+#5  0x00007f9b9f60a4a4 in start_thread () from /usr/lib/libpthread.so.0
+#6  0x00007f9ba1cd613d in clone () from /usr/lib/libc.so.6
+
+Thread 1 (Thread 0x7f9ba38f1800 (LWP 9157)):
+#0  0x00007f9ba2044a0a in QMutex::lock() () from /usr/lib/libQt5Core.so.5
+#1  0x00007f9b8e600d76 in ?? () from /usr/lib/libQt5XcbQpa.so.5
+#2  0x00007f9b8e600ec4 in QXcbConnection::getTimestamp() () from /usr/lib/libQt5XcbQpa.so.5
+#3  0x00007f9b8e620b72 in QXcbNativeInterface::getTimestamp(QXcbScreen const*) () from /usr/lib/libQt5XcbQpa.so.5
+#4  0x00007f9b8e6217fa in QXcbNativeInterface::nativeResourceForScreen(QByteArray const&, QScreen*) () from /usr/lib/libQt5XcbQpa.so.5
+#5  0x00007f9ba175b700 in QX11Info::getTimestamp() () from /usr/lib/libQt5X11Extras.so.5
+#6  0x00007f9b96895269 in KDBusService::Activate(QMap<QString, QVariant> const&) () from /usr/lib/libKF5DBusAddons.so.5
+#7  0x00007f9b96898de2 in ?? () from /usr/lib/libKF5DBusAddons.so.5
+#8  0x00007f9b96428293 in ?? () from /usr/lib/libQt5DBus.so.5
+#9  0x00007f9b9642beea in ?? () from /usr/lib/libQt5DBus.so.5
+#10 0x00007f9b9642c82b in ?? () from /usr/lib/libQt5DBus.so.5
+#11 0x00007f9b9642dbae in ?? () from /usr/lib/libQt5DBus.so.5
+#12 0x00007f9ba225beb1 in QObject::event(QEvent*) () from /usr/lib/libQt5Core.so.5
+#13 0x00007f9ba087900c in QApplicationPrivate::notify_helper(QObject*, QEvent*) () from /usr/lib/libQt5Widgets.so.5
+#14 0x00007f9ba087e4e6 in QApplication::notify(QObject*, QEvent*) () from /usr/lib/libQt5Widgets.so.5
+#15 0x00007f9ba222c89b in QCoreApplication::notifyInternal(QObject*, QEvent*) () from /usr/lib/libQt5Core.so.5
+#16 0x00007f9ba222ec96 in QCoreApplicationPrivate::sendPostedEvents(QObject*, int, QThreadData*) () from /usr/lib/libQt5Core.so.5
+#17 0x00007f9ba2282e33 in ?? () from /usr/lib/libQt5Core.so.5
+#18 0x00007f9b9e8df9fd in g_main_context_dispatch () from /usr/lib/libglib-2.0.so.0
+#19 0x00007f9b9e8dfce0 in ?? () from /usr/lib/libglib-2.0.so.0
+#20 0x00007f9b9e8dfd8c in g_main_context_iteration () from /usr/lib/libglib-2.0.so.0
+#21 0x00007f9ba228323f in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#22 0x00007f9ba222a26a in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#23 0x00007f9b887d938b in ?? () from /usr/lib/qt/plugins/kauth/backend/kauth_backend_plugin.so
+#24 0x00007f9b925b474e in KAuth::Action::setName(QString const&) () from /usr/lib/libKF5Auth.so.5
+#25 0x00007f9b925b47b9 in KAuth::Action::Action(QString const&) () from /usr/lib/libKF5Auth.so.5
+#26 0x00007f9b894ae634 in PowerDevilUPowerBackend::init() () from /usr/lib/qt/plugins/kded_powerdevil.so
+#27 0x00007f9b89265747 in PowerDevil::Core::loadCore(PowerDevil::BackendInterface*) () from /usr/lib/libpowerdevilcore.so.2
+#28 0x00007f9b894a394f in ?? () from /usr/lib/qt/plugins/kded_powerdevil.so
+#29 0x00007f9ba225beb1 in QObject::event(QEvent*) () from /usr/lib/libQt5Core.so.5
+#30 0x00007f9ba087900c in QApplicationPrivate::notify_helper(QObject*, QEvent*) () from /usr/lib/libQt5Widgets.so.5
+#31 0x00007f9ba087e4e6 in QApplication::notify(QObject*, QEvent*) () from /usr/lib/libQt5Widgets.so.5
+#32 0x00007f9ba222c89b in QCoreApplication::notifyInternal(QObject*, QEvent*) () from /usr/lib/libQt5Core.so.5
+#33 0x00007f9ba222ec96 in QCoreApplicationPrivate::sendPostedEvents(QObject*, int, QThreadData*) () from /usr/lib/libQt5Core.so.5
+#34 0x00007f9ba2282e33 in ?? () from /usr/lib/libQt5Core.so.5
+#35 0x00007f9b9e8df9fd in g_main_context_dispatch () from /usr/lib/libglib-2.0.so.0
+#36 0x00007f9b9e8dfce0 in ?? () from /usr/lib/libglib-2.0.so.0
+#37 0x00007f9b9e8dfd8c in g_main_context_iteration () from /usr/lib/libglib-2.0.so.0
+#38 0x00007f9ba228323f in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#39 0x00007f9ba222a26a in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#40 0x00007f9ba223220c in QCoreApplication::exec() () from /usr/lib/libQt5Core.so.5
+#41 0x00007f9b8eac0b64 in kdemain () from /usr/lib/libkdeinit5_kded5.so
+#42 0x000000000040856a in ?? ()
+#43 0x000000000040585f in main ()
+A debugging session is active.
+
+	Inferior 1 [process 9157] will be detached.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
+================================================================
+================BT FOR plasmashell (9501)
+================================================================
+[New LWP 9530]
+[New LWP 9516]
+[New LWP 9503]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+0x00007f75f83db18d in poll () from /usr/lib/libc.so.6
+
+Thread 4 (Thread 0x7f75e6889700 (LWP 9503)):
+#0  0x00007f75f83db18d in poll () from /usr/lib/libc.so.6
+#1  0x00007f75fd3d9ae2 in ?? () from /usr/lib/libxcb.so.1
+#2  0x00007f75fd3db757 in xcb_wait_for_event () from /usr/lib/libxcb.so.1
+#3  0x00007f75e89edca9 in ?? () from /usr/lib/libQt5XcbQpa.so.5
+#4  0x00007f75f8adba9e in ?? () from /usr/lib/libQt5Core.so.5
+#5  0x00007f75f7be34a4 in start_thread () from /usr/lib/libpthread.so.0
+#6  0x00007f75f83e413d in clone () from /usr/lib/libc.so.6
+
+Thread 3 (Thread 0x7f75df5ef700 (LWP 9516)):
+#0  0x00007f75f83db18d in poll () from /usr/lib/libc.so.6
+#1  0x00007f75f488ac7c in ?? () from /usr/lib/libglib-2.0.so.0
+#2  0x00007f75f488ad8c in g_main_context_iteration () from /usr/lib/libglib-2.0.so.0
+#3  0x00007f75f8d1323f in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#4  0x00007f75f8cba26a in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#5  0x00007f75f8ad6af4 in QThread::exec() () from /usr/lib/libQt5Core.so.5
+#6  0x00007f75fbe57335 in ?? () from /usr/lib/libQt5Qml.so.5
+#7  0x00007f75f8adba9e in ?? () from /usr/lib/libQt5Core.so.5
+#8  0x00007f75f7be34a4 in start_thread () from /usr/lib/libpthread.so.0
+#9  0x00007f75f83e413d in clone () from /usr/lib/libc.so.6
+
+Thread 2 (Thread 0x7f75d6d6d700 (LWP 9530)):
+#0  0x00007f75f83db18d in poll () from /usr/lib/libc.so.6
+#1  0x00007f75f488ac7c in ?? () from /usr/lib/libglib-2.0.so.0
+#2  0x00007f75f488ad8c in g_main_context_iteration () from /usr/lib/libglib-2.0.so.0
+#3  0x00007f75f8d1323f in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#4  0x00007f75f8cba26a in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#5  0x00007f75f8ad6af4 in QThread::exec() () from /usr/lib/libQt5Core.so.5
+#6  0x00007f75fbe57335 in ?? () from /usr/lib/libQt5Qml.so.5
+#7  0x00007f75f8adba9e in ?? () from /usr/lib/libQt5Core.so.5
+#8  0x00007f75f7be34a4 in start_thread () from /usr/lib/libpthread.so.0
+#9  0x00007f75f83e413d in clone () from /usr/lib/libc.so.6
+
+Thread 1 (Thread 0x7f75feede800 (LWP 9501)):
+#0  0x00007f75f83db18d in poll () from /usr/lib/libc.so.6
+#1  0x00007f75f488ac7c in ?? () from /usr/lib/libglib-2.0.so.0
+#2  0x00007f75f488ad8c in g_main_context_iteration () from /usr/lib/libglib-2.0.so.0
+#3  0x00007f75f8d1325b in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#4  0x00007f75f8cba26a in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#5  0x00007f75f8cc220c in QCoreApplication::exec() () from /usr/lib/libQt5Core.so.5
+#6  0x00000000004300f3 in main ()
+A debugging session is active.
+
+	Inferior 1 [process 9501] will be detached.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
+================================================================
+================BT FOR ksmserver (9484)
+================================================================
+[New LWP 9487]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+0x00007f9ba1ccd18d in poll () from /usr/lib/libc.so.6
+
+Thread 2 (Thread 0x7f9b8a577700 (LWP 9487)):
+#0  0x00007f9ba1ccd18d in poll () from /usr/lib/libc.so.6
+#1  0x00007f9ba11bfae2 in ?? () from /usr/lib/libxcb.so.1
+#2  0x00007f9ba11c1757 in xcb_wait_for_event () from /usr/lib/libxcb.so.1
+#3  0x00007f9b8c2b5ca9 in ?? () from /usr/lib/libQt5XcbQpa.so.5
+#4  0x00007f9ba204ba9e in ?? () from /usr/lib/libQt5Core.so.5
+#5  0x00007f9b9f60a4a4 in start_thread () from /usr/lib/libpthread.so.0
+#6  0x00007f9ba1cd613d in clone () from /usr/lib/libc.so.6
+
+Thread 1 (Thread 0x7f9ba38f1800 (LWP 9484)):
+#0  0x00007f9ba1ccd18d in poll () from /usr/lib/libc.so.6
+#1  0x00007f9b9e8dfc7c in ?? () from /usr/lib/libglib-2.0.so.0
+#2  0x00007f9b9e8dfd8c in g_main_context_iteration () from /usr/lib/libglib-2.0.so.0
+#3  0x00007f9ba228325b in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#4  0x00007f9ba222a26a in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+#5  0x00007f9ba223220c in QCoreApplication::exec() () from /usr/lib/libQt5Core.so.5
+#6  0x00007f9b8ea77e16 in kdemain () from /usr/lib/libkdeinit5_ksmserver.so
+#7  0x000000000040856a in ?? ()
+#8  0x0000000000409ebe in ?? ()
+#9  0x000000000040a4b6 in ?? ()
+#10 0x0000000000404f1b in main ()
+A debugging session is active.
+
+	Inferior 1 [process 9484] will be detached.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
+Error: Could not find PID for kglobalaccled
+========================================================================
+Lets look at responses from the qdbus components
+========================================================================
+
+================================================================
+================Bus Response FOR org.kde.ActivityManager
+================================================================
+/
+/ActivityManager
+/ActivityManager/Activities
+/ActivityManager/Features
+/ActivityManager/Resources
+/ActivityManager/Resources/Linking
+/ActivityManager/Resources/Scoring
+/MainApplication
+/SLC
+/org
+/org/kde
+/org/kde/ActivityManager
+
+================================================================
+================Bus Response FOR org.kde.kaccess
+================================================================
+/
+/MainApplication
+
+================================================================
+================Bus Response FOR org.kde.ksmserver
+================================================================
+/
+/KSMServer
+/MainApplication
+/ScreenSaver
+/org
+/org/freedesktop
+/org/freedesktop/ScreenSaver
+/org/kde
+/org/kde/ksmserver
+
+================================================================
+================Bus Response FOR org.kde.screensaver
+================================================================
+/
+/KSMServer
+/MainApplication
+/ScreenSaver
+/org
+/org/freedesktop
+/org/freedesktop/ScreenSaver
+/org/kde
+/org/kde/ksmserver
+
+================================================================
+================Bus Response FOR org.kde.krunner
+================================================================
+/
+/App
+/MainApplication
+/org
+/org/kde
+/org/kde/krunner
+
+================================================================
+================Bus Response FOR org.kde.baloo
+================================================================
+/
+/indexer
+
+================================================================
+================Bus Response FOR org.kde.KWin
+================================================================
+/
+/0
+/Compositor
+/KWin
+/Scripting
+
+================================================================
+================Bus Response FOR org.kde.plasmashell
+================================================================
+/
+/MainApplication
+/PlasmaShell
+/org
+/org/kde
+/org/kde/osdService
+/org/kde/plasmashell
+
+================================================================
+================Bus Response FOR org.kde.polkit-kde-authentication-agent-1
+================================================================
+/
+/MainApplication
+/org
+/org/kde
+/org/kde/Polkit1AuthAgent
+/org/kde/polkitkdeauthenticationagent1
+
+================================================================
+================Bus Response FOR org.kde.kmix
+================================================================
+/
+/KDebug
+/MainApplication
+/Mixers
+/Mixers/PulseAudio__Capture_Devices_1
+/Mixers/PulseAudio__Capture_Devices_1/alsa_input_pci_0000_00_1b_0_analog_stereo
+/Mixers/PulseAudio__Capture_Streams_1
+/Mixers/PulseAudio__Playback_Devices_1
+/Mixers/PulseAudio__Playback_Devices_1/alsa_output_pci_0000_00_1b_0_analog_stereo
+/Mixers/PulseAudio__Playback_Devices_1/alsa_output_pci_0000_02_00_1_hdmi_stereo
+/Mixers/PulseAudio__Playback_Devices_1/alsa_output_pci_0000_81_00_1_hdmi_stereo
+/Mixers/PulseAudio__Playback_Streams_1
+/Mixers/PulseAudio__Playback_Streams_1/restore_sink_input_by_media_role_event
+/kmix
+/kmix/KMixWindow
+/kmix/KMixWindow/actions
+/kmix/KMixWindow/actions/file_quit
+/kmix/KMixWindow/actions/options_show_menubar
+/kmix/KMixWindow/actions/options_configure
+/kmix/KMixWindow/actions/options_configure_keybinding
+/kmix/KMixWindow/actions/launch_kdesoundsetup
+/kmix/KMixWindow/actions/hwinfo
+/kmix/KMixWindow/actions/hide_kmixwindow
+/kmix/KMixWindow/actions/toggle_channels_currentview
+/kmix/KMixWindow/actions/select_master
+/kmix/KMixWindow/actions/save_1
+/kmix/KMixWindow/actions/save_2
+/kmix/KMixWindow/actions/save_3
+/kmix/KMixWindow/actions/save_4
+/kmix/KMixWindow/actions/load_1
+/kmix/KMixWindow/actions/load_2
+/kmix/KMixWindow/actions/load_3
+/kmix/KMixWindow/actions/load_4
+/kmix/KMixWindow/actions/increase_volume
+/kmix/KMixWindow/actions/decrease_volume
+/kmix/KMixWindow/actions/mute
+
+================================================================
+================Bus Response FOR org.kde.StatusNotifierItem-9523-1
+================================================================
+/
+/MenuBar
+/StatusNotifierItem
+
+================================================================
+================Bus Response FOR org.kde.klauncher5
+================================================================
+/
+/KLauncher
+
+================================================================
+================Bus Response FOR org.kde.StatusNotifierWatcher
+================================================================
+Error: org.freedesktop.DBus.Error.NoReply
+Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+
+================================================================
+================Bus Response FOR org.kde.kded5
+================================================================
+Error: org.freedesktop.DBus.Error.NoReply
+Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+
+================================================================
+================Bus Response FOR org.kde.kglobalaccel
+================================================================
+/
+/MainApplication
+/component
+/component/ActivityManager
+/component/KDE_Keyboard_Layout_Switcher
+/component/amarok
+/component/kaccess
+/component/kded5
+/component/khotkeys
+/component/kmix
+/component/krunner
+/component/ksmserver
+/component/kwin
+/component/mediacontrol
+/component/plasmashell
+/kglobalaccel
+/org
+/org/kde
+/org/kde/kglobalaccel
